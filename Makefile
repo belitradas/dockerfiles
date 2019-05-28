@@ -2,6 +2,13 @@
 KUBECTL_VERSION ?= 1.14.2
 GOX_VERSION ?= 1.0.0
 GO_BUILDER_VERSION ?= 1.12.5
+CURATOR_VERSION ?= 5.7.6
+
+curator-build:
+	docker build ./curator --build-arg CURATOR_VERSION=$(CURATOR_VERSION) -t belitre/curator:$(CURATOR_VERSION)
+
+curator-push:
+	docker push belitre/curator:$(CURATOR_VERSION)
 
 kubectl-build:
 	docker build ./kubectl --build-arg KUBECTL_VERSION=$(KUBECTL_VERSION) -t belitre/kubectl:$(KUBECTL_VERSION)

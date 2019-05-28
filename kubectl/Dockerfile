@@ -10,7 +10,6 @@ ENV HOME=/home/prow
 RUN set -x && \
     apk add --no-cache curl ca-certificates make bash && \
     chmod +x /usr/local/bin/kubectl && \
-    adduser prow -Du 2342 -h /config && \
-    kubectl version --client
+    adduser prow -Du 2342 -h /config 
 
 USER prow
